@@ -1,0 +1,66 @@
+            C#          vs          Java
+
+Structure
+
+folders
+            namespaces              package
+
+naming conventions
+
+files/classes
+            PascalCase aka UpperCamelCase
+ext         .cs                     .java
+
+class methods
+            PascalCase              camelCase
+            UpperCamelCase
+
+            public static
+            void Main
+            (string[] args){}
+                                    public static void main(String[] args){}
+
+terms
+            fields                  instance variables
+            property
+
+
+access levels
+
+            public                  public
+            private                 private
+            protected               protected
+            internal                default/package-private
+
+data types
+            DateTime                --
+            bool                    boolean
+            string                  String
+            int                     int
+            ulong                   n/a
+            long                    long
+            short                   short
+            ushort                  n/a
+            uint                    n/a
+            float                   float
+            double                  double
+            byte                    byte
+            sbyte                   n/a
+            char                    char
+            SpanTime                --
+
+Output   Console.Write/WriteLine()  System.out.print/println/printf()
+
+Input           C#
+                Console.Read()
+                Console.ReadLine()
+
+                Java
+                Create a Scanner object -> System.in (input as bytes)
+                use a method to get the specific data type expected from user
+                    .nextLine()
+                    .nextDouble()
+                    .nextInt()
+                    .nextShort()
+
+

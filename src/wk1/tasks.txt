@@ -1,0 +1,33 @@
+Task 1
+
+Create a file named Greetings
+    create a main method
+        output a greeting: Hello, how are you going?
+        ask the user for their age:
+        output: "Nice! You are {age} years old"
+        output: "Five years from now, you will be {age+5} years old"
+
+Task 2
+    Create a file named MathOperation
+        create a main method
+        ask the user for a number
+        ask the user for an operator
+        ask the user for another number
+        output the result of the math operator
+
+        Bonus: avoid division by zero exception/error
+
+Task 3
+    Create a file named MathStorm
+        create a main method
+        continually ask user (inifite loop) until user gets question incorrect
+        RANDOMLY generate 2 int values b/t 1-20
+        RANDOMLY generate an operator (+, -, *, /, %)
+
+        1 + 5 = ?
+
+        Feedback of Correct of Incorrect. If incorrect, loop stops (BREAK)
+
+        Give feedback of how many questions they answer correctly
+            You answered 5 out of 6 questions correctly. That's
+            a percentage of %83
