@@ -1,0 +1,70 @@
+comp1008G - Week 2 - January 16, 2025
+
+
+Seating Arrangement Program
+-determine how many students enrolled in class
+-determine/calculate our rows/columns of desks
+-input names for each student enrolled in class
+
+Example
+
+Enter # Students: 12
+Enter rows: 3
+enter columns: 4  * if rows x columns >= # students => display error
+
+Ask user for names of students x 12
+
+*******		******		******		******
+Ben		Bob		Joe		Mary
+*******		******		******		******
+
+
+*******		******		******		******
+Ben		Bob		Joe		Mary
+*******		******		******		******
+
+
+*******		******		******		******
+Ben		Bob		Joe		Mary
+*******		******		******		******
+
+
+
+
+Class Properties and Methods
+
+Properties: values that store states
+	names					String arrays
+	rows					int
+	columns					int
+	num of students				int
+	desk border char			char
+	number of desk border chars		int
+	number of spaces between desks		int
+
+
+Methods: actions of program
+	ask for all property values: done in another class
+	validate (names, desk border char): done in THIS class: seating arrangement
+	write name
+	write desk
+	write spaces
+
+
+
+*******		******		******		******
+
+*******		******		******		******
+
+
+*******		******		******		******
+
+*******		******		******		******
+
+
+*******		******		******		******
+
+*******		******		******		******
+
+
+
