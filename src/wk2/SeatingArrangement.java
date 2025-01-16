@@ -5,9 +5,13 @@ public class SeatingArrangement {
     String[] names;
     private int rows, columns, numberOfStudents,
             numberOfDeskBorderChars = 6,
-    numberOfSpacesBetweenDesks = 2;
+    numberOfSpacesBetweenDesks = 2,
+    numberOfTabs = 2,
+    namesIndexTracker = -1;
+    ;
 
     private char deskBorderChar = '*';
+    private String defaultName = "John";
 
     //constructor: an official request to INSTANTIATE (initialize, create, order) an instance of
     //this class
@@ -75,20 +79,63 @@ public class SeatingArrangement {
     public void setDeskBorderChar(char deskBorderChar) {
         this.deskBorderChar = deskBorderChar;
     }
+
+
     public String writeDesk(){
-        return deskBorderChar + "";
+        String content = "";
+        for(int i = 0; i < columns; i++)
+            content += String.valueOf(deskBorderChar).repeat(numberOfDeskBorderChars)
+                    + "\t".repeat(numberOfTabs);
+        return content ;
     }
+
+
+
+
+
     public String writeName(){
-        return "Ben";
+        //return (defaultName + "\t".repeat(3)).repeat(columns);
+        String content = "";
+        for(int i = 0; i < columns; i++)
+            content += names[++namesIndexTracker] + "\t".repeat(numberOfTabs);
+        return content;
     }
+
     public String displaySeatingArrangement(){
-        String content = "This will display the seating arrangement";
-        content = "\n";
-        content +=writeDesk();
-        content +=writeName();
-        content +=writeDesk();
+        String content = "This is the seating arrangement";
+        content += "\n";
+        namesIndexTracker = -1;
+        for(int i = 0; i < rows; i++) {
+            content += writeDesk() + "\n";
+            content += writeName() + "\n";
+            content += writeDesk() + "\n";
+
+            content += "\n".repeat(numberOfSpacesBetweenDesks);
+        }
 
         return content;
     }
 
+
+
+
+    public void setNames(String... names) {
+
+
+        //System.out.println(names.getClass().getSimpleName());
+
+        this.names = new String[getNumberOfStudents()];
+        if(names.length != getNumberOfStudents()){
+            System.out.println("Not enough names");
+            for(int i = 0; i < getNumberOfStudents(); i++){
+                this.names[i] = defaultName;
+            }
+        }
+        else{
+            for(int i = 0; i < names.length; i++){
+                this.names[i] = names[i];
+            }
+        }
+
+    }
 }
