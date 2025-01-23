@@ -29,6 +29,12 @@ public class SeatingArrangement {
         setNumberOfStudents();
         setNames();
     }
+    public SeatingArrangement(int rows, int columns, String... names) {
+        this(rows, columns);
+        setNames(names);
+    }
+
+
         //toString: a special method that is implicitly called when user outputs the object
         //summarize the values of the object
     public String toString(){
@@ -141,7 +147,7 @@ public class SeatingArrangement {
         }
         else{
             for(int i = 0; i < names.length; i++){
-                this.names[i] = names[i];
+                this.names[i] = formatName(names[i]);
             }
         }
 
@@ -165,7 +171,7 @@ public class SeatingArrangement {
     }
     public static SeatingArrangement LargeClass(int rows, int columns){
 
-        return new SeatingArrangement(rows, columns);
+        return new SeatingArrangement(Math.max(10, rows), Math.max(10, columns));
     }
 
     public static boolean isValidData(int numberOfStudents, int rows, int columns){
@@ -183,6 +189,18 @@ public class SeatingArrangement {
 
 
 
+    }
+
+    public static SeatingArrangement IncreaseClassSize(SeatingArrangement sa, int additionalRows){
+        additionalRows = Math.max(1, additionalRows);
+        int rows = sa.getRows() + additionalRows;
+        int columns = sa.getColumns();
+        String[] names = new String[rows * columns + columns * additionalRows];
+        for(int i = rows * columns; i < names.length ; i++){
+            names[i] = sa.defaultName;
+        }
+
+        return new SeatingArrangement(rows, columns, names);
     }
 
 }
