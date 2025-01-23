@@ -1,0 +1,19 @@
+Tasks
+
+SeatingArrangement
+1)add a method formatName(String name)
+	if name has less than 4 chars, add spaces to end before adding it to an array of student names. call this method in setNames() 
+
+2)Add a constructor: rows, columns, unlimited names
+
+3)Modify LargeClass(rows and columns): only allow values >= 10
+4)Overload LargeClass(rows and columns, unlimited names)
+5)add Factory method: increaseClassSize(SeatingArrangement, int additionalRows)
+	create a new SeatingArrangement object with new values
+6) add an instance method, addRows(number of rows)
+	add this many rows to the current Seating Arrangement Object
+7) add a method swapStudents(int index1, int index2)
+	swap student seating positions
+
+Week2Runner
+1) 
