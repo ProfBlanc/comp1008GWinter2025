@@ -203,4 +203,24 @@ public class SeatingArrangement {
         return new SeatingArrangement(rows, columns, names);
     }
 
+    public void addRows(int additionalRows){
+        additionalRows = Math.max(1, additionalRows);
+        rows += additionalRows;
+        String[] names = new String[rows * columns + columns * additionalRows];
+        for(int i = rows * columns; i < names.length ; i++){
+            names[i] = defaultName;
+        }
+        setNames(names);
+    }
+    public void swapStudents(int index1, int index2){
+        if(index1 >= 0 && index1 < names.length && index2 >= 0 && index2 < names.length){
+
+            String temp = names[index1];
+            names[index1] = names[index2];
+            names[index2] = temp;
+        }
+
+
+    }
+
 }
