@@ -1,0 +1,102 @@
+comp1008G - Week 3 - January 23, 2025
+
+
+enums:list of constants? pre-defined values. think dropdown menu of options
+factorymethod: a method that creates an pre-set config of object
+
+overloading: adding a variation to the class
+overriding: removing old implementation and creating new implementation
+		creating a new method body for this class
+
+how to link the Runner class and the Class
+Unit Testing
+
+
+implement these things using SeatingArrangement class
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Seating Arrangement Program
+-determine how many students enrolled in class
+-determine/calculate our rows/columns of desks
+-input names for each student enrolled in class
+
+Example
+
+Enter # Students: 12
+Enter rows: 3
+enter columns: 4  * if rows x columns >= # students => display error
+
+Ask user for names of students x 12
+
+*******		******		******		******
+Ben		Bob		Joe		Mary
+*******		******		******		******
+
+
+*******		******		******		******
+Ben		Bob		Joe		Mary
+*******		******		******		******
+
+
+*******		******		******		******
+Ben		Bob		Joe		Mary
+*******		******		******		******
+
+
+
+
+Class Properties and Methods
+
+Properties: values that store states
+	names					String arrays
+	rows					int
+	columns					int
+	num of students				int
+	desk border char			char
+	number of desk border chars		int
+	number of spaces between desks		int
+
+
+Methods: actions of program
+	ask for all property values: done in another class
+	validate (names, desk border char): done in THIS class: seating arrangement
+	write name
+	write desk
+	write spaces
+
+
+
+*******		******		******		******
+
+*******		******		******		******
+
+
+*******		******		******		******
+
+*******		******		******		******
+
+
+*******		******		******		******
+
+*******		******		******		******
+
+
+
+
+Create a method that ask
+
+
+
