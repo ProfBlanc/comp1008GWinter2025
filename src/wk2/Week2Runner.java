@@ -55,9 +55,21 @@ public class Week2Runner {
                         // YOUR choice: 1) add a new method in Seating Arrangement
                         // or
                         // 2) use the names[] array and override the student at the specified index
+                        System.out.println("What student index would you like to modify? ");
+                        int index = Integer.parseInt(console.readLine());
+                        if (index < 0 || index > numStudents - 1){
+                            System.err.println("Index is out of range. It needs to be between 0 and " + (numStudents - 1));
+                        }
+                        else{
+                            System.out.println("Enter the new student name");
+                            String name = console.readLine();
+                            sa.setSingleStudent(index, name);
+                        }
                         break;
                     case "2":
                         //enter floor value
+                        System.out.println("Enter a floor value");
+                        sa.setFloor(console.readLine().toUpperCase());
                         break;
                     case "3":
                         System.out.println(sa.displaySeatingArrangement());
@@ -86,7 +98,7 @@ public class Week2Runner {
         SeatingArrangement sa = new SeatingArrangement(2, 2);//instantiating object
 
         System.out.println(sa.displaySeatingArrangement());
-        sa.floor = SeatingArrangement.Floor.BASEMENT;
+        //sa.floor = SeatingArrangement.Floor.BASEMENT;
         System.out.println(sa.displaySeatingArrangement());
 
     }

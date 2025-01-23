@@ -3,7 +3,7 @@ package wk2;
 public class SeatingArrangement {
 
     enum Floor {BASEMENT, FIRST, SECOND, THIRD}  //enum aka list of constant
-    Floor floor = Floor.SECOND;
+    private Floor floor = Floor.SECOND;
     String[] names;
     private int rows, columns, numberOfStudents,
             numberOfDeskBorderChars = 6,
@@ -151,6 +151,14 @@ public class SeatingArrangement {
 
         return new SeatingArrangement(rowsAndColumns, rowsAndColumns);
     }
+    private String formatName(String name){
+            if(name.isEmpty())
+                name = defaultName;
+        return name.length() >= 4 ? name : name + " ".repeat(4 - name.length());
+    }
+    public void setSingleStudent(int index, String name){
+        names[index] = formatName(name);
+    }
 
     public static SeatingArrangement LargeClass(){
         return new SeatingArrangement(10, 10);
@@ -162,6 +170,19 @@ public class SeatingArrangement {
 
     public static boolean isValidData(int numberOfStudents, int rows, int columns){
         return rows * columns >= numberOfStudents;
+    }
+
+    public void setFloor(String floor){
+
+        this.floor = switch (floor.toUpperCase()){
+            case "BASEMENT" -> Floor.BASEMENT;
+            case "FIRST" -> Floor.FIRST;
+            case "SECOND" -> Floor.SECOND;
+            default -> Floor.THIRD;
+        };
+
+
+
     }
 
 }
