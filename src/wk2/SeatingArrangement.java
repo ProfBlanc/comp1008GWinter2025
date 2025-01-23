@@ -2,6 +2,8 @@ package wk2;
 
 public class SeatingArrangement {
 
+    enum Floor {BASEMENT, FIRST, SECOND, THIRD}  //enum aka list of constant
+    Floor floor = Floor.SECOND;
     String[] names;
     private int rows, columns, numberOfStudents,
             numberOfDeskBorderChars = 6,
@@ -17,12 +19,17 @@ public class SeatingArrangement {
     //this class
     //public same name of class: params needed to run an instance of this class
 
+    public SeatingArrangement(){
+
+        this(1, 1);
+    }
     public SeatingArrangement(int rows, int columns) {
         setRows(rows);
         setColumns(columns);
         setNumberOfStudents();
+        setNames();
     }
-        //toString: a special method that is implicitly called when user outputs the objecgt
+        //toString: a special method that is implicitly called when user outputs the object
         //summarize the values of the object
     public String toString(){
 
@@ -102,7 +109,8 @@ public class SeatingArrangement {
     }
 
     public String displaySeatingArrangement(){
-        String content = "This is the seating arrangement";
+        String content = "This is the seating arrangement.";
+        content += "The classroom is located on " + floor + " floor";
         content += "\n";
         namesIndexTracker = -1;
         for(int i = 0; i < rows; i++) {
@@ -126,7 +134,7 @@ public class SeatingArrangement {
 
         this.names = new String[getNumberOfStudents()];
         if(names.length != getNumberOfStudents()){
-            System.out.println("Not enough names");
+            //System.out.println("Not enough names");
             for(int i = 0; i < getNumberOfStudents(); i++){
                 this.names[i] = defaultName;
             }
@@ -138,4 +146,22 @@ public class SeatingArrangement {
         }
 
     }
+
+    public static SeatingArrangement SquaredLargeClass(int rowsAndColumns){
+
+        return new SeatingArrangement(rowsAndColumns, rowsAndColumns);
+    }
+
+    public static SeatingArrangement LargeClass(){
+        return new SeatingArrangement(10, 10);
+    }
+    public static SeatingArrangement LargeClass(int rows, int columns){
+
+        return new SeatingArrangement(rows, columns);
+    }
+
+    public static boolean isValidData(int numberOfStudents, int rows, int columns){
+        return rows * columns >= numberOfStudents;
+    }
+
 }
