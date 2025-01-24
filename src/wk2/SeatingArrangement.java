@@ -3,13 +3,13 @@ package wk2;
 public class SeatingArrangement {
 
     enum Floor {BASEMENT, FIRST, SECOND, THIRD}  //enum aka list of constant
-    Floor floor = Floor.SECOND;
+    private Floor floor = Floor.SECOND;
     String[] names;
     private int rows, columns, numberOfStudents,
             numberOfDeskBorderChars = 6,
-    numberOfSpacesBetweenDesks = 2,
-    numberOfTabs = 2,
-    namesIndexTracker = -1;
+            numberOfSpacesBetweenDesks = 2,
+            numberOfTabs = 2,
+            namesIndexTracker = -1;
     ;
 
     private char deskBorderChar = '*';
@@ -29,8 +29,14 @@ public class SeatingArrangement {
         setNumberOfStudents();
         setNames();
     }
-        //toString: a special method that is implicitly called when user outputs the object
-        //summarize the values of the object
+    public SeatingArrangement(int rows, int columns, String... names) {
+        this(rows, columns);
+        setNames(names);
+    }
+
+
+    //toString: a special method that is implicitly called when user outputs the object
+    //summarize the values of the object
     public String toString(){
 
         return String.format("Rows=%d, Columns=%d", rows, columns);
@@ -134,30 +140,98 @@ public class SeatingArrangement {
 
         this.names = new String[getNumberOfStudents()];
         if(names.length != getNumberOfStudents()){
-            System.out.println("Not enough names");
+            //System.out.println("Not enough names");
             for(int i = 0; i < getNumberOfStudents(); i++){
                 this.names[i] = defaultName;
             }
         }
         else{
             for(int i = 0; i < names.length; i++){
-                this.names[i] = names[i];
+                this.names[i] = formatName(names[i]);
             }
         }
 
     }
 
-    public static SeatingArrangement SquaredLargeClass(int rowsAndColumns){
+    public static SeatingArrangement SquaredLargeClass(int rowsAndColumns, String... names){
 
-        return new SeatingArrangement(rowsAndColumns, rowsAndColumns);
+        return new SeatingArrangement(rowsAndColumns, rowsAndColumns, names);
+    }
+    private String formatName(String name){
+        if(name.isEmpty())
+            name = defaultName;
+        return name.length() >= 4 ? name : name + " ".repeat(4 - name.length());
+    }
+    public void setSingleStudent(int index, String name){
+        names[index] = formatName(name);
     }
 
     public static SeatingArrangement LargeClass(){
         return new SeatingArrangement(10, 10);
     }
-    public static SeatingArrangement LargeClass(int rows, int columns){
+    public static SeatingArrangement LargeClass(int rows, int columns, String... names){
 
-        return new SeatingArrangement(rows, columns);
+        return new SeatingArrangement(Math.max(10, rows), Math.max(10, columns), names);
+    }
+
+    public static boolean isValidData(int numberOfStudents, int rows, int columns){
+        return rows * columns >= numberOfStudents;
+    }
+
+    public void setFloor(String floor){
+
+        this.floor = switch (floor.toUpperCase()){
+            case "BASEMENT" -> Floor.BASEMENT;
+            case "FIRST" -> Floor.FIRST;
+            case "SECOND" -> Floor.SECOND;
+            default -> Floor.THIRD;
+        };
+
+
+
+    }
+    public String[] getNames(){
+        return names;
+    }
+    public static SeatingArrangement IncreaseClassSize(SeatingArrangement sa, int additionalRows){
+        additionalRows = Math.max(1, additionalRows);
+        int rows = sa.getRows() + additionalRows;
+        int columns = sa.getColumns();
+        String[] names = new String[rows * columns + columns * additionalRows];
+
+
+        String[] originalNames = sa.getNames();
+
+        System.arraycopy(originalNames, 0, names, 0, originalNames.length);
+
+        for(int i = rows * columns; i < names.length ; i++){
+            names[i] = sa.defaultName;
+        }
+
+        return new SeatingArrangement(rows, columns, names);
+    }
+
+    public void addRows(int additionalRows){
+        additionalRows = Math.max(1, additionalRows);
+        rows += additionalRows;
+        String[] names = new String[rows * columns + columns * additionalRows];
+
+        System.arraycopy(getNames(), 0, names, 0, getNames().length);
+
+        for(int i = rows * columns; i < names.length ; i++){
+            names[i] = defaultName;
+        }
+        setNames(names);
+    }
+    public void swapStudents(int index1, int index2){
+        if(index1 >= 0 && index1 < names.length && index2 >= 0 && index2 < names.length){
+
+            String temp = names[index1];
+            names[index1] = names[index2];
+            names[index2] = temp;
+        }
+
+
     }
 
 }
