@@ -113,4 +113,22 @@ public class Fighter {
         return new Fighter("StrongPlayer", MAX_POWER, MAX_HEALTH, SpecialMove.DOUBLE_POWER.toString());
     }
 
+    @Override
+    public String toString() {
+        return "Fighter{" +
+                "name='" + name + '\'' +
+                ", power=" + power +
+                ", health=" + health +
+                ", specialMove=" + specialMove +
+                '}';
+    }
+
+
+    public void attacked(double power){
+
+        if(power < MIN_POWER || power > MAX_POWER){
+            throw new IllegalArgumentException("Invalid attack value: " + power + " is out of range");
+        }
+        health -= power;
+    }
 }

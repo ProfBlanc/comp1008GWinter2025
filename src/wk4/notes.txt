@@ -1,0 +1,44 @@
+comp1008G - Week 4 - January 30, 2025
+
+We will create a FightingGame
+	Include 2 Player/Fighter
+	Title: Fight b/w p1 & p2
+	winner: Player/Fighter
+	fighters/players ArrayList
+	fight() allow 1 player
+		to attack anther
+Fighter
+	Name, Health, Power, SpecialMove
+	toString: summary Fighter
+	isAlive(): health>0
+	WeakFighter: low power & health
+	StrongFighter: .....
+
+enums, factory methods,
+
+
+Create a GoTrain class
+	cardbalance: double
+	price:	3 dollars
+	departingStation:String
+	arrivalStation: String
+	validStations: array or arraylist
+
+	constructor(initial balance)
+	tapOn(String station):
+		validate station in list of validStations
+		deducts price from balance
+	tapOff(String station)
+		validate station in list of validStations
+		call on tripTotal()
+	tripTotal()
+		take the absolute diff of array indexes
+		multiply by price
+		-returns your starting and ending stations
+		-returns your tripCost
+		-returns your new card balance
+		* return all three values as 1 string
+
+
+
+
