@@ -1,0 +1,46 @@
+Inheritance
+    creating class BASED on another class
+        Do not re-reinvent the wheel
+            D           R           Y
+
+            do not      repeat      yourself
+
+
+    What is inherited?
+        non-private
+            instance variables
+            methods
+        EXCEPT: constructors. constructors are not inherited
+
+    Java only support single-class inheritance
+
+
+    Super Class                             Sub Class
+    Base  Class                             Derived Class
+    Parent Class                            Child Class
+
+
+    newer version of class              older version of class
+
+
+    A Sub Class IS-AN instance/version of a Super Class
+
+Polymorphism
+    many forms
+        Override: new version
+        Overload: new variation
+            both demonstrate polymorphism
+
+    Abstract
+        class that cannot be instantiated
+            class that stores common traits
+        class that is incomplete
+            has an idea but no default implementation (body)
+        Shape
+            default formula for area?
+
+
+    Interface
+        list of requirements
+            series of method definitions & constants
+                no: anything else (constructors, instance variables, etc)

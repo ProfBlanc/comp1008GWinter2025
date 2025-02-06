@@ -1,0 +1,36 @@
+Task 1
+Create an abstract class named Vehicle
+    instance variables:
+        Name, Color, speed
+    instance methods
+        isDriving       evaluate speed > 0
+    abstract method
+        isInGoodDrivingCondition(int ageOfVehicle, int kilometers)
+
+Task 2
+Create an interface named Windshield
+    constant
+        max_thickness
+    methods
+        isCracked()
+        getWeight()
+Task 3
+    Create a class named: SUV
+        based on Vehicle and implemented Windshield
+_______________________________________________________
+
+Task 4
+    Create abstract class named StreamingService
+        instance variables
+            name
+            array of Method Types
+
+        abstract methods
+            viewMedia(String media, int duration
+            setSharingLimits(String region, String accountType)
+        instance method
+            pay(String method, long number)
+    Create concrete class named: Your choice of StreamingService
+        implement abstract methods
+        add needed instance variables to make a functioning class
+
